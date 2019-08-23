@@ -2,6 +2,8 @@ package com.jensonjo.algorithmimplementations;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +12,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.jensonjo.algorithmimplementations.sort.insertion.InsertionSort;
 
+import lombok.extern.java.Log;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Log
 public class AlgorithmImplementationsApplicationTests {
 
     @Autowired
@@ -19,11 +24,13 @@ public class AlgorithmImplementationsApplicationTests {
 
     @Test
     public void contextLoads() {
-        int[] unorderedList = new int[]{3, 2, 1, 7, 5, 9, 8, 0};
+        int[] unorderedList = new int[]{31, 41, 59, 26, 41, 58};
+        //{3, 2, 1, 7, 5, 9, 8, 0};
 
-        int[] sortedList = new int[]{0, 1, 2, 3, 5, 7, 8, 9};
+        int[] sortedList = unorderedList.clone();
+        Arrays.sort(sortedList);
 
-        System.out.println(assertThat(insertionSort.sort(unorderedList).equals(sortedList)));
+        log.info("" + assertThat(insertionSort.sort(unorderedList).equals(sortedList)));
     }
 
 }

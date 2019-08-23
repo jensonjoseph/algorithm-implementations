@@ -22,7 +22,6 @@ public class InsertionSortImpl implements InsertionSort {
             }
             ordered[innerCount + 1] = key;
         }
-//        Arrays.sort(unordered);
         return ordered;
     }
 }
